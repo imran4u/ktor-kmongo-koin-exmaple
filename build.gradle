@@ -2,7 +2,7 @@ buildscript {
     repositories {
         jcenter()
     }
-    
+
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
@@ -29,18 +29,17 @@ repositories {
     maven { url 'https://kotlin.bintray.com/ktor' }
 }
 
-
 dependencies {
-    compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "io.ktor:ktor-server-netty:$ktor_version"
     implementation "ch.qos.logback:logback-classic:$logback_version"
     implementation "io.ktor:ktor-server-core:$ktor_version"
     implementation "io.ktor:ktor-jackson:$ktor_version"
 
     //Kmonog
-//    compile 'org.litote.kmongo:kmongo-coroutine:4.0.0'
-      compile 'org.litote.kmongo:kmongo-coroutine:3.10.0'
+    compile 'org.litote.kmongo:kmongo-coroutine:4.0.0'
+//  compile 'org.litote.kmongo:kmongo-coroutine:3.10.0'
 
 
     // Koin for Ktor Kotlin:: A pragmatic lightweight dependency injection framework for Kotlin developers
@@ -48,4 +47,10 @@ dependencies {
     implementation "org.koin:koin-core-ext:$koin_version"
 
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
